@@ -52,7 +52,7 @@ DEPENDENCIES
 
 This module requires these other modules and libraries:
 
-  XSB system
+  XSB 2.6 system
   Inline::C
   Language::Prolog::Types
   Test::More

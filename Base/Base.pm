@@ -74,7 +74,7 @@ use Inline C => qq
      xsb(1,0,0);
  }
 
-}, NAME => __PACKAGE__, VERSION => $VERSION, PREFIX => 'my_';
+}, NAME => __PACKAGE__, VERSION => $VERSION, PREFIX => 'my_', OPTIMIZE => '-g';
 
 
 # conversions between Perl and Prolog implemented in Converter module

@@ -11,7 +11,7 @@ MANIFEST
 README
 Register/Register.pm
 Register/Makefile.PL
-xsblib/perlcallxsb.O
+xsblib/perlcallxsb.xwam
 xsblib/perlcallxsb.P
 xsblib/Makefile.PL
 t/1Base.t

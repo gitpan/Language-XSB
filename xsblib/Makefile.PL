@@ -5,6 +5,6 @@ use ExtUtils::MakeMaker;
 WriteMakefile( 'NAME'		=> 'Language::XSB::xsblib',
 	       'PREREQ_PM'		=> {},
 	       'AUTHOR'     => 'Salvador Fandiño <sfandino@yahoo.com>',
-	       'PM'         => { 'perlcallxsb.O' =>
-				 '$(INST_LIBDIR)/xsblib/perlcallxsb.O' },
+	       'PM'         => { 'perlcallxsb.xwam' =>
+				 '$(INST_LIBDIR)/xsblib/perlcallxsb.xwam' },
 );

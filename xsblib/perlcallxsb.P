@@ -26,11 +26,36 @@
 :- compiler_options([sysmod,xpp_on]).
 #include "standard.h"
 #include "sig_xsb.h"
+#include "flag_defs_xsb.h"
 
 :- import conget/2, conset/2 from gensym.
-/* :- import excess_vars/4 from setof. */
+:- import excess_vars/4 from setof.
+:- import call_expose/1, goal_cut_trans/3 from standard.
 
-:- perl_mainloop.
+:- 	set_inthandler('_$attv_int'(_,_), MYSIG_ATTV),
+	perl_mainloop.
+
+
+set_inthandler(Handler, Number) :-
+	Flag is Number + INT_HANDLERS_FLAGS_START,
+	term_psc(Handler, PSC),
+	stat_set_flag(Flag, PSC).
+
+'_$attv_int'(Intlist, Call) :-
+% 	file_write(1, '.... in _$attv_int/2'), file_nl(1),
+% 	file_write(1, '.... interrupt chain is : '),
+% 	file_write(1, Intlist), file_nl(1),
+	handle_interrupts(Intlist),
+%	file_write(1, '.... leaving _$attv_int/2'), file_nl(1),
+	call_c(Call).
+
+handle_interrupts([]) :- !.
+handle_interrupts([[Var|Value]|Ints]) :-
+% 	file_write(1, '.... [Var|Value] = '),
+% 	file_write(1, [Var|Value]), file_nl(1),
+	verify_attributes(Var, Value),
+	handle_interrupts(Ints).
+
 
 perl(Sub, Args, Result, Exception) :-
 	perl_call(Sub, Args, R, E),
@@ -142,3 +167,5 @@ eval_cmdline_goal(FileDes) :- file_close(FileDes).
 
 '_$keyboard_int'(_Call) :- 
         abort.
+
+

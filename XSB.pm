@@ -1,6 +1,6 @@
 package Language::XSB;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 use strict;
 use warnings;
@@ -213,8 +213,10 @@ my $perlcallxsb;
 for my $path (@INC) {
     next if ref $path;
     my $name=$path.'/Language/XSB/xsblib/perlcallxsb';
-    $perlcallxsb=$name, last if -f $name.'.O';
+    $perlcallxsb=$name, last if (-f $name.'.xwam' or -f $name.'.P');
 }
+
+# warn "perlcallxsb found at '$perlcallxsb'";
 
 xsb_init($perlcallxsb||'perlcallxsb');
 callback_perl();
