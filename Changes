@@ -1,5 +1,8 @@
 Revision history for Perl extension Language::XSB.
 
+0.14  4 Oct 2003
+	- corrected doc errors (reported by Alexandre Bezroutchko)
+
 0.13  Thu Jul 24 2003
 	- updated to work under XSB 2.6
 

@@ -1,6 +1,6 @@
 package Language::XSB;
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 use strict;
 use warnings;
@@ -251,7 +251,7 @@ Language::XSB - use XSB from Perl.
     }
 
     print join("\n", xsb_find_all(orn(equal(X, 27),
-				      equal(X, 45))), X);
+				      equal(X, 45)), X)), "\n";
 
 =head1 ABSTRACT
 
@@ -444,7 +444,7 @@ Salvador Fandiño, E<lt>sfandino@yahoo.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2002 by Salvador Fandiño
+Copyright 2002, 2003 by Salvador Fandiño
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

@@ -18,3 +18,4 @@ t/1Base.t
 t/2XSB.t
 t/3simple.t
 XSB.pm
+META.yml                                 Module meta-data (added by MakeMaker)

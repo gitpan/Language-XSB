@@ -1,5 +1,5 @@
-Language/XSB version 0.12
-=========================
+Language/XSB
+============
 
 This package provides a bidirectional interface to XSB
 (L<http://xsb.sourceforge.net>).
@@ -57,7 +57,7 @@ This module requires these other modules and libraries:
   Language::Prolog::Types
   Test::More
 
-and is also recommended to have:
+and it is also recommended to have:
 
   Language::Prolog::Sugar
 
@@ -65,7 +65,7 @@ and is also recommended to have:
 
 COPYRIGHT AND LICENCE
 
-Copyright 2002 by Salvador Fandiño <sfandino@yahoo.com>
+Copyright 2002, 2003 by Salvador Fandiño <sfandino@yahoo.com>
 
 This library is free software; you can redistribute it
 and/or modify it under the same terms as Perl itself.
