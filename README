@@ -1,4 +1,4 @@
-Language/XSB version 0.10
+Language/XSB version 0.11
 =========================
 
 This package provides a bidirectional interface to XSB
@@ -20,9 +20,9 @@ From the XSB manual:
 
 CHANGES
 
-version 0.10 is incompatible with previous versions, some function
-names have changed, others have changed their behavior, and new ones
-are available.
+From version 0.10 the public interface is incompatible with previous
+versions, some function names have changed, others have changed their
+behavior, and new ones are available.
 
 
 INSTALLATION

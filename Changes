@@ -1,5 +1,9 @@
 Revision history for Perl extension Language::XSB.
 
+0.11  Fri Jan 31 2003
+	- modified to used converter objects from P::L::Types
+	  package.
+
 0.10  Fri Jan 31 2003
 	- some tests added
 	- major interface changes to mimic the one for

@@ -2,7 +2,7 @@ package Language::XSB::Base;
 
 our $VERSION;
 BEGIN {
-    $VERSION = '0.02';
+    $VERSION = '0.11';
 }
 
 use strict;
@@ -78,8 +78,8 @@ use Inline C => qq
 
 
 # conversions between Perl and Prolog implemented in Converter module
-use Language::XSB::Converter;
-our $converter='Language::XSB::Converter';
+use Language::Prolog::Types::Converter;
+our $converter='Language::Prolog::Types::Converter';
 
 1;
 __END__

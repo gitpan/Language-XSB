@@ -9,5 +9,5 @@ WriteMakefile(
 			     'Test::More' => 0 },
     'ABSTRACT_FROM'     => 'XSB.pm',
     'AUTHOR'            => 'Salvador Fandiño <sfandino@yahoo.com>',
-    'DIR'               => [qw(Config Converter Base Register xsblib)],
+    'DIR'               => [qw(Config Base Register xsblib)],
 );
