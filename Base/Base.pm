@@ -2,7 +2,7 @@ package Language::XSB::Base;
 
 our $VERSION;
 BEGIN {
-    $VERSION = '0.01';
+    $VERSION = '0.02';
 }
 
 use strict;
@@ -24,8 +24,8 @@ use Inline C => Config => MYEXTLIB => $XsbConfig{XSB_O},
                 INC => "-I$XsbConfig{CONFDIR} -I$XsbConfig{EMUDIR}";
                 # CCFLAGS => "-g -O0";
 
-my $pkg;
-BEGIN { $pkg=__PACKAGE__ }
+# my $pkg;
+# BEGIN { $pkg=__PACKAGE__ }
 
 use Inline C => qq
 {

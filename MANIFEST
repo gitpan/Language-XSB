@@ -16,5 +16,7 @@ Register/Makefile.PL
 xsblib/perlcallxsb.O
 xsblib/perlcallxsb.P
 xsblib/Makefile.PL
-t/1.t
+t/1Base.t
+t/2XSB.t
+t/3simple.t
 XSB.pm

@@ -1,5 +1,14 @@
 Revision history for Perl extension Language::XSB.
 
+0.10  Fri Jan 31 2003
+	- some tests added
+	- major interface changes to mimic the one for
+	  Language::Prolog::Yaswi.
+
+0.04  Thu Jan 9 2003
+	- forgotten debugging warning removed from ...::Base.h
+	- removed unused var $pkg from Language::XSB::Base
+
 0.03  Thu Nov 28 2002
         - cleaned up for CPAN distribution
 

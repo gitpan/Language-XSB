@@ -10,7 +10,7 @@ static SV *converter;
 static SV *term2sv(prolog_term t);
 static void perl2p_sv(SV *sv, prolog_term t, AV *refs, AV *cells);
 
-/* two functions to easily call simple methods on Perl refs: */
+/* some functions to easily call simple methods on Perl refs: */
 static SV *call_method__sv(SV *object, char *method) {
   dSP;
   SV *result;
@@ -235,10 +235,11 @@ static void perl2p_iulist(SV *o, prolog_term t, AV *refs, AV *cells) {
 static void perl2p_list(SV *o, prolog_term list, AV *refs, AV *cells) {
     dSP;
     int i;
-    int len=call_method__int(o, "length");
+    int len;
     SV *el;
     ENTER;
     SAVETMPS;
+    len=call_method__int(o, "length");
     for (i=0; i<len; i++, list=p2p_cdr(list)) {
 	if(!c2p_list(list))
 	    die ("internal error, unable to create XSB list\n");
@@ -259,12 +260,16 @@ static void perl2p_list(SV *o, prolog_term list, AV *refs, AV *cells) {
 static void perl2p_functor(SV *o, prolog_term functor, AV *refs, AV *cells) {
     dSP;
     int i;
-    SV *name=call_method__sv(o, "functor");
-    int arity=call_method__int(o, "arity");
+    SV *name;
+    int arity;
+    ENTER;
+    SAVETMPS;
+    name=call_method__sv(o, "functor");
+    arity=call_method__int(o, "arity");
     if(!c2p_functor(SvPV_nolen(name), arity, functor))
 	die("internal error, unable to create XSB %s/%d functor",
 	    SvPV_nolen(name), arity);
-    SvREFCNT_dec(name);
+    /* SvREFCNT_dec(name); */
     for(i=0; i<arity; i++) {
 	ENTER;
 	SAVETMPS;
@@ -273,11 +278,13 @@ static void perl2p_functor(SV *o, prolog_term functor, AV *refs, AV *cells) {
 	FREETMPS;
 	LEAVE;
     }
+    FREETMPS;
+    LEAVE;
 }
 
 
 static void perl2p_any_ref(SV *ref, prolog_term t, AV *refs, AV *cells) {
-    warn ("Converting Perl ref -> XSB term\n");
+    /* warn ("Converting Perl ref -> XSB term\n"); */
     perl2p_sv( call_method_sv__sv(converter, "perl_ref2prolog", ref),
 	       t, refs, cells);
 }
