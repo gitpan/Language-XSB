@@ -1,6 +1,6 @@
 package Language::XSB;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 use strict;
 use warnings;
@@ -365,12 +365,12 @@ More elaborate constructions can be used:
   %mothers=xsb_find_all(mother(X,Y), X, Y)
 
 
-=item C<xsb_find_one($query, @pattern>
+=item C<xsb_find_one($query, @pattern)>
 
 as C<xsb_find_all> but only for the first solution.
 
 
-=item C<xsb_call>
+=item C<xsb_call(@query)>
 
 runs the query once and return true if a solution was found or false
 otherwise.
@@ -402,9 +402,12 @@ i.e.:
 
 This is alpha software so there should be some of them.
 
-clpr is not callable from Perl, an FPE signal will raise.
+clpr is not callable from Perl. A FPE signal will raise if you try to
+do so.
 
-no threads support.
+No threads support as XSB doesn't support them (take a look at
+L<Language::Prolog::Yaswi> for an interface to SWI-Prolog with thread
+support).
 
 
 =head1 SEE ALSO
@@ -414,11 +417,19 @@ and L<Language::Prolog::Sugar> for instructions on creating
 Prolog (or XSB) terms from Perl.
 
 For XSB and Prolog information see L<xsb(1)>, the XSB website at
-L<Sourceforge|http://xsb.sourceforge.net>, the FAQ of
-L<comp.lang.prolog|news:comp.lang.prolog> and any good Prolog
-book, I personally recommend you Ivan Bratko L<PROLOG
-Programming for Artificial Intelligence> as an introduction to
-Prolog.
+L<Sourceforge|http://xsb.sourceforge.net> and the FAQ of
+L<comp.lang.prolog|news:comp.lang.prolog>.
+
+A good Prolog book would also help. I personally recommend you
+
+=over 4
+
+=item - L<PROLOG Programming for Artificial Intelligence> by Ivan
+Bratko.
+
+=item - L<The Art of Prolog> by Leon Sterling and Ehud Shapiro.
+
+=back
 
 If you want to look at the inners details of this package then
 take a look at L<Language::XSB::Base> and
